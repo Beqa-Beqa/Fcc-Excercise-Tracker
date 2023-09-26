@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excercise Tracker</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", () => {
+          const id = document.getElementById("id").value;
+          form.action = `/api/users/${id}/exercises`;
+        });
+      });
+    </script>
+    <h1>Exercise tracker</h1>
+    <div class="form-container">
+      <div class="form">
+        <h3>Create a New User</h3>
+        <p>POST /api/users</p>
+        <form method="POST" action="/api/users">
+          <input name="username" placeholder="username" type="text" />
+          <input value="submit" type="submit"/>
+        </form>
+      </div>
+      <div class="form">
+        <h3>Add exercises</h3>
+        <p>POST /api/users/:_id/exercises</p>
+        <form id="form" method="POST">
+          <input placeholder="id" id="id" name="id" type="text" />
+          <input placeholder="description" name="description" type="text" />
+          <input placeholder="duration (mins.)" name="duration" type="text" />
+          <input placeholder="date (yyyy-mm-dd)" name="date" type="text" />
+          <input id="submit" value="submit" type="submit" />
+        </form>
+      </div>
+    </div>
+    <span style="display: block; margin-bottom: 1rem;"><strong>GET user's exercise log:</strong> <p>GET /api/users/:_id/logs?[from][&to][&limit]</p></span>
+    <span style="display: block; margin-bottom: 1rem;"><strong>[ ]</strong> = optional</span>
+    <span style="display: block; margin-bottom: 1rem;"><strong>form, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</span>
+  </body>
+</html>
