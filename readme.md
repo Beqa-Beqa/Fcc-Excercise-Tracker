@@ -25,3 +25,5 @@ You can get user's logs information by making a `GET` request on `/api/users/:id
 Additionaly to logs request you can add `[from]&[to]&[limit]` parameters that will filter the result for you
 `[from]` and `[to]` are date formats (yyyy-mm-dd) and `[limit]` is an integer value.
 </h4>
+<br/>
+<h4>Keep in mind to create .env file and add your mongodb [MONGO_URI] variable in it with respective value</h4>
