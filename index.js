@@ -3,11 +3,14 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const { User, Exercise } = require("./db/connect");
+const helm = require("helmet")
 
 // Serve static files
 app.use(express.static("public"));
 // Use the url-encoded parser
 app.use(express.urlencoded({ extended: true }));
+// Secuirty
+app.use(helm());
 
 // Serve index.html file on homepage
 app.get("/", (req, res) => {
